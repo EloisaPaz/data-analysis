@@ -1,15 +1,15 @@
-package com.eloisapaz.core.challenge.model;
+package com.eloisapaz.dataanalysis.model;
 
-import java.util.LinkedHashSet;
+import java.util.List;
 
-public class Sale implements Bridge{
+public class Sale {
 
     private String idSale;
     private Salesman salesman;
-    private LinkedHashSet<Item> itens;
+    private List<Item> itens;
     private Double total;
 
-    public Sale(String idSale, LinkedHashSet<Item> itens) {
+    public Sale(String idSale, List<Item> itens) {
         this.idSale = idSale;
         this.itens = itens;
     }
@@ -30,11 +30,11 @@ public class Sale implements Bridge{
         this.salesman = salesman;
     }
 
-    public LinkedHashSet<Item> getItens() {
+    public List<Item> getItens() {
         return itens;
     }
 
-    public void setItens(LinkedHashSet<Item> itens) {
+    public void setItens(List<Item> itens) {
         this.itens = itens;
     }
 

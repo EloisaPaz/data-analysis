@@ -1,14 +1,14 @@
-package com.eloisapaz.core.challenge.model;
+package com.eloisapaz.dataanalysis.model;
 
-public class Client implements Bridge{
+public class Client {
 
     private String name;
     private String cnpj;
     private String businessArea;
 
-    public Client(String name, String cnpj, String businessArea) {
+    public Client(String name, String cpf, String businessArea) {
         this.name = name;
-        this.cnpj = cnpj;
+        this.cnpj = cpf;
         this.businessArea = businessArea;
     }
 

@@ -1,4 +1,4 @@
-package com.eloisapaz.core.challenge.model;
+package com.eloisapaz.dataanalysis.model;
 
 public enum ID {
 

@@ -1,16 +1,16 @@
-package com.eloisapaz.core.challenge.builder;
+package com.eloisapaz.dataanalysis.builder;
 
-import com.eloisapaz.core.challenge.model.Bridge;
-import com.eloisapaz.core.challenge.model.Salesman;
+import com.eloisapaz.dataanalysis.model.Salesman;
+import org.springframework.stereotype.Component;
 
-public class SalesmanBuilder implements Builder{
+@Component
+public class SalesmanBuilder {
 
     private static final int NAME = 2;
     private static final int CPF = 1;
     private static final int PAYMENT = 3;
 
-    @Override
-    public Bridge build(String[] data) {
+    public Salesman build(String[] data) {
         return new Salesman(
                 data[NAME],
                 data[CPF],

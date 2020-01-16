@@ -1,6 +1,6 @@
-package com.eloisapaz.core.challenge.model;
+package com.eloisapaz.dataanalysis.model;
 
-public class Salesman implements Bridge{
+public class Salesman {
 
     private String name;
     private String cpf;
@@ -12,6 +12,9 @@ public class Salesman implements Bridge{
         this.cpf = cpf;
         this.payment = payment;
         this.totalSales = 0.0;
+    }
+
+    public Salesman() {
     }
 
     public String getName() {
@@ -46,3 +49,4 @@ public class Salesman implements Bridge{
         this.totalSales += totalSales;
     }
 }
+

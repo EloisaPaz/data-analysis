@@ -1,29 +1,35 @@
-package com.eloisapaz.core.challenge.builder;
+package com.eloisapaz.dataanalysis.builder;
 
-import java.util.LinkedHashSet;
-import com.eloisapaz.core.challenge.model.Item;
-import com.eloisapaz.core.challenge.model.Sale;
-import com.eloisapaz.core.challenge.model.Bridge;
-import com.eloisapaz.core.challenge.model.Salesman;
+import com.eloisapaz.dataanalysis.model.Item;
+import com.eloisapaz.dataanalysis.model.Sale;
+import com.eloisapaz.dataanalysis.model.Salesman;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class SaleBuilder implements Builder{
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class SaleBuilder {
 
     private static final int IDSALE = 1;
-    private static final int SALESMAN = 3;
     private static final int ITENS = 2;
+    private static final int SALESMAN = 3;
 
-    private static LinkedHashSet<Salesman> salesmanSale;
+    private static List<Salesman> salesmanSale;
 
-    public SaleBuilder(LinkedHashSet<Salesman> salesman) {
+    public SaleBuilder(List<Salesman> salesman) {
         salesmanSale = salesman;
     }
 
-    @Override
-    public Bridge build(String[] data) {
+    public SaleBuilder() {
+    }
+
+    public Sale build(String[] data) {
         Sale sale = new Sale(data[IDSALE],
                 this.getItensSale(data));
 
-        sale.setTotal(sale.getItens().stream().mapToDouble(item->item.getTotal()).sum());
+        sale.setTotal(sale.getItens().stream().mapToDouble(Item::getTotal).sum());
         salesmanSale.forEach(salesmanSale -> {
             if(salesmanSale.getName().equalsIgnoreCase(data[SALESMAN])) {
                 salesmanSale.setTotalSales(sale.getTotal());
@@ -33,8 +39,8 @@ public class SaleBuilder implements Builder{
         return sale;
     }
 
-    private LinkedHashSet<Item> getItensSale(String[] data){
-        LinkedHashSet<Item> itensSale = new LinkedHashSet<>();
+    private List<Item> getItensSale(String[] data){
+        List<Item> itensSale = new ArrayList<>();
         ItemBuilder itemBuilder = new ItemBuilder();
         String [] itens = data[ITENS].replace("[", "").replace("]", "").split(",");
         for (String item : itens) {

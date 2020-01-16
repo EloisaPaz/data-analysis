@@ -1,6 +1,6 @@
-package com.eloisapaz.core.challenge.model;
+package com.eloisapaz.dataanalysis.model;
 
-public class Item implements Bridge{
+public class Item {
 
     private String idItem;
     private Integer amount;
@@ -11,7 +11,7 @@ public class Item implements Bridge{
         this.idItem = idItem;
         this.amount = amount;
         this.price = price;
-        total = price * amount;
+        this.total = price * amount;
     }
 
     public String getIdItem() {
