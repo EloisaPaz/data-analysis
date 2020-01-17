@@ -13,8 +13,8 @@ import java.util.List;
 public class SaleBuilder {
 
     private static final int IDSALE = 1;
-    private static final int ITENS = 2;
     private static final int SALESMAN = 3;
+    private static final int ITENS = 2;
 
     private static List<Salesman> salesmanSale;
 
@@ -30,6 +30,7 @@ public class SaleBuilder {
                 this.getItensSale(data));
 
         sale.setTotal(sale.getItens().stream().mapToDouble(Item::getTotal).sum());
+
         salesmanSale.forEach(salesmanSale -> {
             if(salesmanSale.getName().equalsIgnoreCase(data[SALESMAN])) {
                 salesmanSale.setTotalSales(sale.getTotal());

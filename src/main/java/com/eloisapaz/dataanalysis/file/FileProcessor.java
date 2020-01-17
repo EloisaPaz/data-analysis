@@ -35,7 +35,7 @@ public class FileProcessor {
             String separator = String.valueOf(line.charAt(3));
             String [] splittedLine = line.split(separator);
 
-            if(splittedLine.length > 0) {
+            if(splittedLine.length > 0 && validateDataType(splittedLine)) {
 
                 if(splittedLine[0].equals(ID.SALESMAN.numID)) {
                     SalesmanBuilder salesmanBuilder = new SalesmanBuilder();
@@ -59,7 +59,7 @@ public class FileProcessor {
         scan.close();
     }
 
-    protected void getReport(String reportPathName) {
+    public void getReport(String reportPathName) {
         try (BufferedWriter out = new BufferedWriter(new FileWriter(reportPathName + "report" + ".done.dat"))) {
             out.write("Total of clients is: " + clients.size());
             out.newLine();
@@ -73,7 +73,7 @@ public class FileProcessor {
         }
     }
 
-    private String getBiggestSale() {
+    public String getBiggestSale() {
         double biggestSalePrice = 0;
         String idBiggestSale = "";
         for(Sale sale : this.sales) {
@@ -85,7 +85,7 @@ public class FileProcessor {
         return idBiggestSale;
     }
 
-    private String getWorstSeller() {
+    public String getWorstSeller() {
         Salesman worstSeller = this.salesmanList.iterator().next();
         for(Salesman salesman : this.salesmanList) {
             if(salesman.getTotalSales() < worstSeller.getTotalSales()) {
