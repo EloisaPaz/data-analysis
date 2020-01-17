@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.PostConstruct;
 
 @Component
+@Configuration
+@EnableScheduling
 public class FileConfig {
 
     @Autowired
@@ -27,6 +32,7 @@ public class FileConfig {
     private static String fileOut = homePath + "/data/out/";
 
     @PostConstruct
+    @Scheduled(cron = "0 0/1 * 1/1 * ?")
     public void run() {
 
         try {

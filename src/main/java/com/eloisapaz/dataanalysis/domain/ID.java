@@ -1,4 +1,4 @@
-package com.eloisapaz.dataanalysis.model;
+package com.eloisapaz.dataanalysis.domain;
 
 public enum ID {
 

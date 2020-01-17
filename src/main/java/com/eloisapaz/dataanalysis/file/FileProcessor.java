@@ -4,7 +4,7 @@ import com.eloisapaz.dataanalysis.builder.ClientBuilder;
 import com.eloisapaz.dataanalysis.builder.SaleBuilder;
 import com.eloisapaz.dataanalysis.builder.SalesmanBuilder;
 import com.eloisapaz.dataanalysis.model.Client;
-import com.eloisapaz.dataanalysis.model.ID;
+import com.eloisapaz.dataanalysis.domain.ID;
 import com.eloisapaz.dataanalysis.model.Sale;
 import com.eloisapaz.dataanalysis.model.Salesman;
 import org.slf4j.Logger;
