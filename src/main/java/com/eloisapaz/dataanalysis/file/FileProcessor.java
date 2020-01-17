@@ -17,6 +17,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.*;
 
+import static com.eloisapaz.dataanalysis.domain.DataType.validateDataType;
+
 @Component
 public class FileProcessor {
 
@@ -33,7 +35,7 @@ public class FileProcessor {
             String separator = String.valueOf(line.charAt(3));
             String [] splittedLine = line.split(separator);
 
-            if(splittedLine.length > 0) {
+            if(splittedLine.length > 0 && validateDataType(splittedLine)) {
 
                 if(splittedLine[0].equals(ID.SALESMAN.numID)) {
                     SalesmanBuilder salesmanBuilder = new SalesmanBuilder();

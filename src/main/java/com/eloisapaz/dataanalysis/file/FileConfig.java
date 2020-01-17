@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import static com.eloisapaz.dataanalysis.domain.DataType.validateDataType;
 
 @Component
 @Configuration
@@ -50,7 +51,9 @@ public class FileConfig {
 
             if(files.isEmpty()) {
                 logger.error("Directory is empty, insert files to generate the report.");
-            } else {
+            }
+
+            if(validateDataType(files.toArray())) {
                 for (int i = 0; i < files.size(); i++){
                     fileProcessor.readFile(files.get(i));
                 }
