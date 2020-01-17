@@ -10,7 +10,7 @@ public class DataType {
     public static boolean validateDataType(Object[] data) {
         if(!data[0].equals(ID.SALESMAN.numID) && !data[0].equals(ID.CLIENT.numID) && !data[0].equals(ID.SALE.numID)){
             logger.error("Data type is unknown.");
-            return false;
+            throw new IllegalArgumentException();
         }else{
             return true;
         }
