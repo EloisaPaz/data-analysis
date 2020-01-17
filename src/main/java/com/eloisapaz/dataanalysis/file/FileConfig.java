@@ -32,21 +32,33 @@ public class FileConfig {
         try {
             logger.info("Initializing the program...");
 
+            createDirectory();
+
             Path path = Paths.get(fileIn);
+
             List<File> files = Files.walk(path)
                     .filter(Files::isRegularFile)
                     .filter(s -> s.toString().endsWith(".dat"))
                     .map(Path::toFile)
                     .collect(Collectors.toList());
 
-            for (int i = 0; i < files.size(); i++){
-                fileProcessor.readFile(files.get(i));
+            if(files.isEmpty()) {
+                logger.error("Directory is empty, insert files to generate the report.");
+            } else {
+                for (int i = 0; i < files.size(); i++){
+                    fileProcessor.readFile(files.get(i));
+                }
+                fileProcessor.getReport(fileOut);
             }
-            fileProcessor.getReport(fileOut);
 
         }catch (Exception e){
             logger.error("Closing the program...", e);
         }
 
+    }
+
+    private void createDirectory() {
+        new File(fileIn).mkdirs();
+        new File(fileOut).mkdirs();
     }
 }
