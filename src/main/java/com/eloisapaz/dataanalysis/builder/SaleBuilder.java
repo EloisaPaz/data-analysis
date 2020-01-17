@@ -3,7 +3,6 @@ package com.eloisapaz.dataanalysis.builder;
 import com.eloisapaz.dataanalysis.model.Item;
 import com.eloisapaz.dataanalysis.model.Sale;
 import com.eloisapaz.dataanalysis.model.Salesman;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

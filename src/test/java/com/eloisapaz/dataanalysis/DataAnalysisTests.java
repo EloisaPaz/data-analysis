@@ -6,25 +6,15 @@ import com.eloisapaz.dataanalysis.builder.SalesmanBuilder;
 import com.eloisapaz.dataanalysis.domain.DataType;
 import com.eloisapaz.dataanalysis.file.FileProcessor;
 import com.eloisapaz.dataanalysis.model.Client;
-import com.eloisapaz.dataanalysis.model.Item;
 import com.eloisapaz.dataanalysis.model.Sale;
 import com.eloisapaz.dataanalysis.model.Salesman;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
