@@ -34,4 +34,4 @@ Open the terminal inside the directory and type:
 
 ##### Test coverage:
 
- ![](https://github.com/EloisaPaz/data-analysis/blob/master/img/coverage.jpeg)
+ ![](https://github.com/EloisaPaz/data-analysis/blob/master/img/coverage.png)
