@@ -14,6 +14,9 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -38,31 +41,17 @@ public class DataAnalysisTests {
 	}
 
 	@Test
-	public void testWorstSeller() {
+	public void testWorstSeller() throws FileNotFoundException {
 		FileProcessor fileProcessor = new FileProcessor();
-		String line = data[2];
-		String separator = String.valueOf(line.charAt(3));
-		String [] splittedLine = line.split(separator);
-		SaleBuilder saleBuilder = new SaleBuilder();
-		Sale sale = saleBuilder.build(splittedLine);
-
-		String line2 = data[3];
-		String separator2 = String.valueOf(line.charAt(3));
-		String [] splittedLine2 = line.split(separator);
-		SaleBuilder saleBuilder2 = new SaleBuilder();
-		Sale sale2 = saleBuilder.build(splittedLine);
+		fileProcessor.readFile(new File("src/test/java/com/eloisapaz/dataanalysis/utils/test.dat"));
 
 		assertEquals("Eloisa", fileProcessor.getWorstSeller());
 	}
 
 	@Test
-	public void testBiggestSale() {
+	public void testBiggestSale() throws FileNotFoundException {
 		FileProcessor fileProcessor = new FileProcessor();
-		String line = data[2];
-		String separator = String.valueOf(line.charAt(3));
-		String [] splittedLine = line.split(separator);
-		SaleBuilder saleBuilder = new SaleBuilder();
-		Sale sale = saleBuilder.build(splittedLine);
+		fileProcessor.readFile(new File("src/test/java/com/eloisapaz/dataanalysis/utils/test.dat"));
 
 		assertEquals("27", fileProcessor.getBiggestSale());
 	}
@@ -98,4 +87,11 @@ public class DataAnalysisTests {
 		String [] splittedLine = line.split(separator);
 		DataType.validateDataType(splittedLine);
 	}
+
+	@Test(expected = FileNotFoundException.class)
+	public void testFileNotFound() throws FileNotFoundException {
+		FileProcessor fileProcessor = new FileProcessor();
+		fileProcessor.readFile(new File("src/test/java/com/eloisapaz/dataanalysis/utils/random.dat"));
+	}
+
 }

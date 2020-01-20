@@ -51,10 +51,10 @@ public class FileConfig {
             if(files.isEmpty()) {
                 logger.error("Directory is empty, insert files to generate the report.");
             }
-                for (File file : files) {
-                    fileProcessor.readFile(file);
-                }
-                fileProcessor.getReport(fileOut);
+            for (File file : files) {
+                fileProcessor.readFile(file);
+            }
+            fileProcessor.getReport(fileOut);
         }catch (Exception e){
             logger.error("Closing the program...", e);
         }
